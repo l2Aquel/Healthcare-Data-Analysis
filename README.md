@@ -94,8 +94,8 @@ CASE
 	when DATEDIFF(YEAR,birth_date,coalesce(death_date,GETDATE())) between 18 and 59 then 'Adults (18-59)'
 	else 'Youth (<18)'
 END AS patient_segmentation
-FROM [hospital_db].[dbo].[patients])
->> SELECT patient_segmentation,count(*) as total_patients
+FROM [hospital_db].[dbo].[patients]);
+> SELECT patient_segmentation,count(*) as total_patients
 FROM Patient_Segmentation
 GROUP BY patient_segmentation
 ORDER BY total_patients DESC;
@@ -141,7 +141,7 @@ ORDER BY total_base_encounter_cost DESC;
     FROM [hospital_db].[dbo].[encounters]
     WHERE start >= '2021-01-01' AND start < '2021-04-01'
     GROUP BY CAST(START AS DATE)
-)
+);
 > SELECT service_date,
 	daily_total,
 	ROUND(AVG(daily_total) Over(ORDER BY service_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW),2) AS [7_day_moving_avg]
@@ -155,12 +155,12 @@ ORDER BY service_date
     FROM [hospital_db].[dbo].[patients] p
     JOIN [hospital_db].[dbo].[encounters] e ON p.Id = e.patient
     GROUP BY p.id,p.city,p.first_name,p.last_name
-),
+),;
 > RankedSpending AS (
     SELECT city,first_name,last_name,Total_Healthcare_Spend,
         ROW_NUMBER() OVER (PARTITION BY CITY ORDER BY Total_Healthcare_Spend DESC) as Spend_Rank
     FROM PatientSpending
-)
+);
 > SELECT city,first_name,last_name,Total_Healthcare_Spend,Spend_Rank
 FROM RankedSpending
 WHERE Spend_Rank <= 3
@@ -172,14 +172,14 @@ SELECT MONTH(start) as month_number,ROUND(SUM(total_claim_cost),2) as current_mo
 FROM [hospital_db].[dbo].[encounters]
 WHERE YEAR(start) = 2021
 GROUP BY MONTH(start)
-),
+),;
 Revenue_Comparision as (
 SELECT month_number,current_month_revenue,
 	LAG(current_month_revenue) over(order by month_number) as previous_month_revenue
 FROM Monthly_Revenue
-)
+);
 > SELECT month_number,current_month_revenue,previous_month_revenue,
-	CONCAT(ROUND(((current_month_revenue - previous_month_revenue) / previous_month_revenue) * 100,2),'%') as MoM_Growth_Pct
+CONCAT(ROUND(((current_month_revenue - previous_month_revenue) / previous_month_revenue) * 100,2),'%') as MoM_Growth_Pct
 FROM Revenue_Comparision;
 
 14. Retention & Gap Analysis: Identify "Lapsed Patients" who had a gap of more than 2 years (730 days) between consecutive healthcare visits.
@@ -189,7 +189,7 @@ SELECT p.id,p.first_name,p.last_name,
 	LAG(CAST(e.start as date)) OVER(partition by p.id ORDER BY e.start) AS previous_visit
 FROM [hospital_db].[dbo].[patients] p
 JOIN [hospital_db].[dbo].[encounters] e on p.id = e.patient
-)
+);
 > SELECT first_name,last_name,curent_visit,previous_visit,
 DATEDIFF(DAY,previous_visit,curent_visit) as days_btw_visits
 FROM Gap_Encounter
@@ -204,7 +204,7 @@ ORDER BY first_name,last_name;
         SUM(TOTAL_CLAIM_COST) AS Lifetime_Spend
     FROM [hospital_db].[dbo].[encounters]
     GROUP BY PATIENT
-),
+),;
 TieredPatients AS (
     SELECT 
         PATIENT,
@@ -215,7 +215,7 @@ TieredPatients AS (
             ELSE 'Low Value (<1k)'
         END AS Revenue_Tier
     FROM PatientRevenue
-)
+);
 > SELECT 
     Revenue_Tier,
     COUNT(PATIENT) AS Patient_Count,
