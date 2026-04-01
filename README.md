@@ -95,7 +95,7 @@ CASE
 	else 'Youth (<18)'
 END AS patient_segmentation
 FROM [hospital_db].[dbo].[patients])
-> SELECT patient_segmentation,count(*) as total_patients
+>> SELECT patient_segmentation,count(*) as total_patients
 FROM Patient_Segmentation
 GROUP BY patient_segmentation
 ORDER BY total_patients DESC;
