@@ -87,7 +87,7 @@ GROUP BY p.first_name,p.last_name,reason_description;
 
 6. Patient Lifecycle Segmentation: Categorize the entire patient population into three age-based segments:
    'Seniors' (> 60), 'Adults' (18-59), and 'Youth' (< 18). And give the no of count for each section
-> WITH Patient_Segmentation AS(
+> WITH Patient_Segmentation AS (
 SELECT 
 CASE
 	when DATEDIFF(YEAR,birth_date,coalesce(death_date,GETDATE())) > 60 then 'Seniors (>60)'
