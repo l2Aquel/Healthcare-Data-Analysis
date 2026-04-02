@@ -38,25 +38,25 @@ To deliver a healthcare analytics solution that:
 
 ### • Walkthrough of Key Power BI Visuals
 **Encounter Class Distribution (Donut Chart)**
--Ambulatory: 35.74% (Major revenue driver)
--Urgent Care: 23.0%
--Outpatient: 13.88%
--Emergency: 10.59%
--Wellness/Inpatient: ~16.78% (Combined)
+- Ambulatory: 35.74% (Major revenue driver)
+- Urgent Care: 23.0%
+- Outpatient: 13.88%
+- Emergency: 10.59%
+- Wellness/Inpatient: ~16.78% (Combined)
 
 **Revenue Trends (Column Chart)**
--Shows annual growth and fluctuations in total revenue from 2011 to 2022.
--Identifies peak fiscal years for hospital billing.
+- Shows annual growth and fluctuations in total revenue from 2011 to 2022.
+- Identifies peak fiscal years for hospital billing.
 
 **Key Performance Indicators (KPI Cards)**
--Total Revenue: $101.51 Million
--Number of Patients: 974
--Avg Revenue per Patient: $104.22K
-=Total Encounters: 27.89K
+- Total Revenue: $101.51 Million
+- Number of Patients: 974
+- Avg Revenue per Patient: $104.22K
+- Total Encounters: 27.89K
 
 **Revenue by Payer (Bar Chart)**
--Provides a breakdown of financial liability between Medicare, Medicaid, Private Insurance, and Uninsured populations.
--Highlights NO_INSURANCE as a significant outlier in total claim costs.
+- Provides a breakdown of financial liability between Medicare, Medicaid, Private Insurance, and Uninsured populations.
+- Highlights NO_INSURANCE as a significant outlier in total claim costs.
 
 ## 6. SQL Logic & Insights
 
