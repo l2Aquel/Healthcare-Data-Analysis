@@ -1,38 +1,64 @@
 # Healthcare-Data-Analysis
 
 ## 1. Project Title / Headline
-An end-to-end data analytics project that explores ride booking performance for Ola in Bengaluru, India. Built with Power BI for visual analytics and SQL for backend querying, this project uncovers insights on ride volume, cancellations, customer behavior, and revenue trends for over 100,000 simulated bookings.
+An end-to-end data analytics project exploring hospital performance in Massachusetts. Built with SQL for data querying and Power BI for visual analytics, this project uncovers insights into patient demographics, hospital revenue, and healthcare trends for nearly 1,000 patients.
 
 ## 2. Short Description / Purpose
+The goal of this project is to analyze hospital data to understand how healthcare is delivered and paid for. By linking patient records, insurance providers (Payers), and hospital visits (Encounters), this analysis identifies which cities have the most patients, which insurance companies provide the most coverage, and how hospital costs have changed over the years.
 
 ## 3. Tech Stack
 This project leverages the following technologies:
-- **Power BI Desktop**   
-- **Power Query**
-- **DAX (Data Analysis Expressions)** 
-- **Data Modeling** 
-- **Excel** - 
-- **SQL Server Studio Management/ SQL**  
-- **File Types** – `.pbix`, `.sql`, `.pdf`,`.csv`
+- **Power BI Desktop** - Used to create the interactive dashboard and visual charts.
+- **DAX (Data Analysis Expressions)** - Used to create custom calculations like "Total Patients","Average Revenue per Patient" etc.
+- **Data Modeling** - Created a "Star Schema" to connect Patients, Payers, and Visits.
+- **Excel** - Used for initial data viewing and cleaning and CSV file management.
+- **SQL Server Studio Management/ SQL**  - Used to write queries, join tables, and calculate totals and averages.
+- **File Types** – `.pbix`, `.sql`,`.csv`
 
 ## 4. Data Source
-
+**Source**: Maven Analytics - Hospital Patient Records
+**Location**: Massachusetts, USA
+**Dataset Scale**: Synthetic data representing ~1,000 patients and 75,000+ records across multiple relational tables.
+**Key Fields**: 
+- Patient Info: ID, Name, Gender, Birthdate, Race, and City.
+- Encounters: Visit ID, Start/Stop times, Encounter Class, and Reason for visit.
+- Financials: Total Claim Cost, Payer Coverage, and Base Encounter Cost.
+- Payers: Insurance provider names and contact details.
 
 ## 5. Features / Highlights
 ### • Business Problem
+Healthcare systems face challenges in managing patient volume while maintaining financial sustainability. Hospital administrators need to understand which clinical conditions drive the most cost, which cities require more resources, and how different insurance providers contribute to the hospital's revenue.
 
 ### • Goal of the Dashboard
-
-
+To deliver a healthcare analytics solution that:
+- Tracks Clinical Volume: Monitors patient density and encounter frequency across the Commonwealth of Massachusetts.
+- Analyzes Revenue Flows: Evaluates financial contributions from various insurance providers (Payers).
+- Operational Benchmarking: Compares the utilization and costs associated with different encounter classes (e.g., Ambulatory vs. Emergency).
+- Supports Hospital Administration: Provides data-driven insights for resource allocation and financial planning.
 
 ### • Walkthrough of Key Power BI Visuals
+**Encounter Class Distribution (Donut Chart)**
+-Ambulatory: 35.74% (Major revenue driver)
+-Urgent Care: 23.0%
+-Outpatient: 13.88%
+-Emergency: 10.59%
+-Wellness/Inpatient: ~16.78% (Combined)
 
+**Revenue Trends (Column Chart)**
+-Shows annual growth and fluctuations in total revenue from 2011 to 2022.
+-Identifies peak fiscal years for hospital billing.
 
-## 6. Screenshots / Demos
+**Key Performance Indicators (KPI Cards)**
+-Total Revenue: $101.51 Million
+-Number of Patients: 974
+-Avg Revenue per Patient: $104.22K
+=Total Encounters: 27.89K
 
+**Revenue by Payer (Bar Chart)**
+-Provides a breakdown of financial liability between Medicare, Medicaid, Private Insurance, and Uninsured populations.
+-Highlights NO_INSURANCE as a significant outlier in total claim costs.
 
-
-## SQL Logic & Insights
+## 6. SQL Logic & Insights
 
 1. Patient Demographics: Provide a count of patients grouped by their RACE,GENDER,MARITAL STATUS AND ETHINICITY.
 > SELECT gender,count(*) as patients_as_gender
@@ -225,7 +251,8 @@ FROM TieredPatients
 GROUP BY Revenue_Tier
 ORDER BY Tier_Total_Revenue DESC;
 
+## 7. Screenshots / Demos
+![https://github.com/l2Aquel/Ola-Data-Analysis-Project/blob/main/ola_preview.png](ola_preview.png)
 
-## Business Impact & Insights
 
     
