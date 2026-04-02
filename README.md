@@ -252,7 +252,8 @@ GROUP BY Revenue_Tier
 ORDER BY Tier_Total_Revenue DESC;
 
 ## 7. Screenshots / Demos
-![https://github.com/l2Aquel/Ola-Data-Analysis-Project/blob/main/ola_preview.png](ola_preview.png)
+![https://github.com/l2Aquel/Healthcare-Data-Analysis/blob/main/Dashboard_preview.png](dashboard_preview.png)
+
 
 
     
