@@ -16,14 +16,14 @@ This project leverages the following technologies:
 - **File Types** – `.pbix`, `.sql`,`.csv`
 
 ## 4. Data Source
-**Source**: Maven Analytics - Hospital Patient Records
-**Location**: Massachusetts, USA
-**Dataset Scale**: Synthetic data representing ~1,000 patients and 75,000+ records across multiple relational tables.
-**Key Fields**: 
-- Patient Info: ID, Name, Gender, Birthdate, Race, and City.
-- Encounters: Visit ID, Start/Stop times, Encounter Class, and Reason for visit.
-- Financials: Total Claim Cost, Payer Coverage, and Base Encounter Cost.
-- Payers: Insurance provider names and contact details.
+- **Source**: Maven Analytics - Hospital Patient Records
+- **Location**: Massachusetts, USA
+- **Dataset Scale**: Synthetic data representing ~1,000 patients and 75,000+ records across multiple relational tables.
+- **Key Fields**: 
+  - Patient Info: ID, Name, Gender, Birthdate, Race, and City.
+  - Encounters: Visit ID, Start/Stop times, Encounter Class, and Reason for visit.
+  - Financials: Total Claim Cost, Payer Coverage, and Base Encounter Cost.
+  - Payers: Insurance provider names and contact details.
 
 ## 5. Features / Highlights
 ### • Business Problem
